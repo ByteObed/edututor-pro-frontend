@@ -1,0 +1,278 @@
+/* Footer.css - Full Width Design */
+
+.footer {
+  margin-top: 48px;
+  background-color: #1f2937;
+  color: white;
+  padding: 48px 0; /* Changed: removed horizontal padding */
+  width: 100vw; /* Full viewport width */
+  margin-left: calc(-50vw + 50%); /* Center alignment trick */
+  margin-right: calc(-50vw + 50%);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 32px;
+  max-width: 1200px; /* Content stays centered */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem; /* Padding moved here */
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.brand-icon {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.brand-description {
+  color: #d1d5db;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 14px;
+}
+
+.footer-section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-icon {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.services-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.services-list li {
+  color: #d1d5db;
+  font-size: 14px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #d1d5db;
+  font-size: 14px;
+}
+
+.contact-icon {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.contact-link {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  word-break: break-all;
+}
+
+.contact-link:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid #374151;
+  padding-top: 24px;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.footer-bottom p {
+  color: #9ca3af;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Tablet responsive */
+@media (max-width: 1024px) {
+  .footer {
+    margin-top: 32px;
+    padding: 32px 0;
+  }
+
+  .footer-content {
+    gap: 24px;
+    margin-bottom: 24px;
+    padding: 0 1.5rem;
+  }
+
+  .footer-bottom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .brand-name {
+    font-size: 18px;
+  }
+
+  .footer-section-title {
+    font-size: 16px;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .footer {
+    margin-top: 32px;
+    padding: 24px 0;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+    padding: 0 1rem;
+  }
+
+  .footer-bottom {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-brand {
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .brand-name {
+    font-size: 18px;
+  }
+
+  .brand-description {
+    font-size: 13px;
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .footer-section-title {
+    font-size: 16px;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .services-list {
+    align-items: center;
+    gap: 6px;
+  }
+
+  .services-list li {
+    font-size: 13px;
+  }
+
+  .contact-info {
+    align-items: center;
+    gap: 10px;
+  }
+
+  .contact-item {
+    justify-content: center;
+    font-size: 13px;
+    max-width: 100%;
+  }
+
+  .contact-link {
+    word-break: break-word;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    padding-top: 16px;
+  }
+
+  .footer-bottom p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .footer {
+    padding: 20px 0;
+    margin-top: 24px;
+  }
+
+  .footer-content {
+    gap: 20px;
+    padding: 0 1rem;
+  }
+
+  .footer-bottom {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+  .brand-description {
+    font-size: 12px;
+  }
+
+  .footer-section-title {
+    font-size: 15px;
+  }
+
+  .services-list li {
+    font-size: 12px;
+  }
+
+  .contact-item {
+    font-size: 12px;
+  }
+
+  .footer-bottom p {
+    font-size: 11px;
+  }
+}

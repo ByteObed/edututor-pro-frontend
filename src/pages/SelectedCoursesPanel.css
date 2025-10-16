@@ -1,0 +1,474 @@
+/* SelectedCoursesPanel.css */
+
+.selected-courses-panel {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  height: fit-content;
+  position: sticky;
+  top: 24px;
+}
+
+.panel-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 24px 0;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 32px 0;
+  color: #6b7280;
+}
+
+.empty-icon {
+  color: #d1d5db;
+  margin: 0 auto 16px auto;
+}
+
+.empty-message {
+  font-size: 16px;
+  margin: 0 0 8px 0;
+}
+
+.empty-submessage {
+  font-size: 14px;
+  margin: 0;
+}
+
+.selected-courses-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.courses-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.selected-course-item {
+  border-left: 4px solid #059669;
+  background-color: #ecfdf5;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.selected-course-info {
+  margin-bottom: 12px;
+}
+
+.selected-course-id {
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 4px 0;
+  font-size: 16px;
+}
+
+.selected-course-name {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.selected-course-details {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.remove-course-btn {
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.remove-course-btn:hover {
+  background-color: #b91c1c;
+}
+
+.panel-summary {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 24px;
+}
+
+.summary-card {
+  background-color: #f9fafb;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.summary-row:last-child {
+  margin-bottom: 0;
+}
+
+.summary-label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.summary-value {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.credits-value {
+  color: #2563eb;
+}
+
+.cost-value {
+  color: #059669;
+}
+
+.panel-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.complete-btn {
+  padding: 12px 16px;
+  font-weight: 600;
+}
+
+.clear-btn {
+  padding: 8px 16px;
+  font-weight: 500;
+}
+
+/* Custom scrollbar for courses list */
+.courses-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.courses-list::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.courses-list::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.courses-list::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+/*12345*/
+
+/* Add these styles to your SelectedCoursesPanel.css file */
+
+/* Checkout Modal Overlay */
+.checkout-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Checkout Modal */
+.checkout-modal {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Modal Close Button */
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.modal-close-btn:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* Modal Header */
+.modal-header {
+  text-align: center;
+  padding: 40px 32px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: white;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.modal-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 24px 32px;
+}
+
+/* Courses Summary */
+.courses-summary {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.summary-course-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.summary-course-item:last-of-type {
+  border-bottom: none;
+}
+
+.summary-course-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.summary-course-id {
+  font-size: 12px;
+  font-weight: 600;
+  color: #10b981;
+}
+
+.summary-course-name {
+  font-size: 14px;
+  color: #374151;
+}
+
+.summary-course-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  margin-top: 16px;
+  border-top: 2px solid #10b981;
+}
+
+.summary-total-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.summary-total-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #10b981;
+}
+
+/* Payment Info Box */
+.payment-info-box {
+  background: #dbeafe;
+  border: 1px solid #93c5fd;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.payment-info-box p {
+  font-size: 13px;
+  color: #1e40af;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.payment-info-box strong {
+  font-weight: 600;
+}
+
+/* Modal Footer */
+.modal-footer {
+  padding: 24px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-confirm-btn,
+.modal-cancel-btn {
+  width: 100%;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.modal-confirm-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+}
+
+.modal-confirm-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+.modal-cancel-btn {
+  background: #f3f4f6;
+  color: #374151;
+  border: none;
+}
+
+.modal-cancel-btn:hover {
+  background: #e5e7eb;
+}
+
+/* Update Complete Button to show icon */
+.complete-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .checkout-modal {
+    margin: 20px;
+    max-height: calc(100vh - 40px);
+  }
+
+  .modal-header {
+    padding: 32px 20px 20px;
+  }
+
+  .modal-body {
+    padding: 20px;
+  }
+
+  .modal-footer {
+    padding: 20px;
+  }
+
+  .modal-title {
+    font-size: 20px;
+  }
+
+  .summary-total-value {
+    font-size: 20px;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 1024px) {
+  .selected-courses-panel {
+    position: static;
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .selected-courses-panel {
+    padding: 16px;
+  }
+
+  .courses-list {
+    max-height: 300px;
+  }
+
+  .selected-course-item {
+    padding: 12px;
+  }
+
+  .panel-actions {
+    flex-direction: column;
+  }
+}
