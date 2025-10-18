@@ -1,20 +1,20 @@
 .header {
   background: linear-gradient(135deg, #16a34a 0%, #16a34a 100%);
   color: white;
-  padding: 2rem 0; /* Changed: removed horizontal padding */
+  padding: 2rem 0;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
-  width: 100vw; /* Full viewport width */
-  margin-left: calc(-50vw + 50%); /* Center alignment trick */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
   position: relative;
 }
 
 .header-content {
-  max-width: 1200px; /* Content stays centered */
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 2rem; /* Padding moved here */
+  padding: 0 2rem;
 }
 
 .header-centered {
@@ -26,7 +26,7 @@
 
 .header-with-back {
   display: grid;
-  grid-template-columns: 100px 1fr 150px; /* Left: 100px, Center: flexible, Right: 150px */
+  grid-template-columns: 100px 1fr 150px;
   align-items: center;
   width: 100%;
   gap: 1rem;
@@ -42,6 +42,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .header-right {
@@ -49,6 +50,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  justify-content: center;
 }
 
 .header-title-group {
@@ -93,6 +95,7 @@
   font-size: 0.9rem;
   opacity: 0.9;
   margin: 0;
+  white-space: nowrap;
 }
 
 .courses-count {
@@ -115,9 +118,26 @@
   margin: 0;
 }
 
+/* Tablet */
+@media (max-width: 1024px) {
+  .header-with-back {
+    grid-template-columns: 80px 1fr 120px;
+    gap: 0.75rem;
+  }
+
+  .header h1 {
+    font-size: 1.75rem;
+  }
+
+  .courses-count {
+    font-size: 1.25rem;
+  }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
   .header {
-    padding: 1.5rem 0;
+    padding: 1.25rem 0;
   }
 
   .header-content {
@@ -125,17 +145,64 @@
   }
 
   .header-with-back {
+    display: flex;
     flex-direction: column;
     gap: 1rem;
     text-align: center;
   }
 
   .header-left {
-    flex-direction: column;
-    gap: 0.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .header-center {
+    width: 100%;
+  }
+
+  .header-right {
+    width: 100%;
+    align-items: center;
+    text-align: center;
   }
 
   .header h1 {
     font-size: 1.5rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .courses-count-label {
+    font-size: 0.85rem;
+  }
+
+  .courses-count {
+    font-size: 1.25rem;
+  }
+
+  .major-description {
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .header {
+    padding: 1rem 0;
+  }
+
+  .header-content {
+    padding: 0 0.75rem;
+  }
+
+  .header h1 {
+    font-size: 1.25rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.85rem;
   }
 }
