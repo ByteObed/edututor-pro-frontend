@@ -41,7 +41,7 @@ const Footer = () => {
             </div>
             <div className="contact-item">
               <Phone size={18} className="contact-icon" />
-              <span>+1 (555) 123-4567</span>
+              <span>+233 (201) 774-800</span>
             </div>
             <div className="contact-item">
               <MapPin size={18} className="contact-icon" />
