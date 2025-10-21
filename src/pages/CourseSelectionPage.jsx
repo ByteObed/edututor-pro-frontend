@@ -5,7 +5,7 @@ import { Search, AlertCircle } from "lucide-react";
 import Header from "../components/Header/Header";
 import CourseCard from "./CourseCard";
 import SelectedCoursesPanel from "./SelectedCoursesPanel";
-import apiService from "../services/api"; // ✅ Make sure the file path is correct
+import apiService from "../services/api";
 import "./CourseSelectionPage.css";
 
 const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
@@ -19,12 +19,11 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
   const [isRegistering, setIsRegistering] = useState(false);
   const [duplicateAlert, setDuplicateAlert] = useState("");
   const navigate = useNavigate();
-
-  /* ========= Fetch student info & courses ========= */
+*/
+/* ========= Fetch student info & courses ========= */
 /*useEffect(() => {
-    const storedStudentInfo =
-      propStudentInfo ||
-      JSON.parse(localStorage.getItem("studentInfo") || "{}");
+    // ✅ FIXED: Removed localStorage, now uses only propStudentInfo
+    const storedStudentInfo = propStudentInfo || null;
 
     if (!storedStudentInfo || !storedStudentInfo.major) {
       alert("⚠️ Please complete student information first.");
@@ -48,9 +47,9 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
     // ✅ Fetch already registered courses
     fetchRegisteredCourses(storedStudentInfo.email);
   }, [propStudentInfo, navigate]);
-
-  /* ========= Fetch registered courses ========= */
-/*const fetchRegisteredCourses = async (email) => {
+*/
+/* ========= Fetch registered courses ========= */
+/* const fetchRegisteredCourses = async (email) => {
     try {
       const student = await apiService.getStudent(email);
       if (student && student.selectedCourses) {
@@ -60,8 +59,8 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
       console.error("❌ Error fetching registered courses:", err);
     }
   };
-
-  /* ========= Search filter ========= */
+*/
+/* ========= Search filter ========= */
 /*useEffect(() => {
     if (searchTerm.trim() === "") {
       setFilteredCourses(courses);
@@ -73,13 +72,13 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
       );
     }
   }, [searchTerm, courses]);
-
-  /* ========= Check if course is already registered ========= */
-/* const isCourseAlreadyRegistered = (courseId) =>
+*/
+/* ========= Check if course is already registered ========= */
+/*const isCourseAlreadyRegistered = (courseId) =>
     registeredCourses.some((course) => course.id === courseId);
-
-  /* ========= Course selection handlers ========= */
-/* const handleCourseSelect = (course) => {
+*/
+/* ========= Course selection handlers ========= */
+/*const handleCourseSelect = (course) => {
     if (isCourseAlreadyRegistered(course.id)) {
       setDuplicateAlert(
         `⚠️ You have already registered for ${course.id} - ${course.name}`
@@ -100,9 +99,9 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
   };
 
   const handleClearAll = () => setSelectedCourses([]);
-
-  /* ========= Totals ========= */
-/* const totalCredits = selectedCourses.reduce(
+*/
+/* ========= Totals ========= */
+/*const totalCredits = selectedCourses.reduce(
     (sum, course) => sum + course.credits,
     0
   );
@@ -110,8 +109,8 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
     (sum, course) => sum + course.cost,
     0
   );
-
-  /* ========= Complete Registration ========= */
+*/
+/* ========= Complete Registration ========= */
 /*const handleCompleteRegistration = async (payload) => {
     if (!payload.name || !payload.courses || payload.courses.length === 0) {
       alert("⚠️ Please select at least one course.");
@@ -153,8 +152,8 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
       setIsRegistering(false);
     }
   };
-
-  /* ========= UI ========= */
+*/
+/* ========= UI ========= */
 /*return (
     <div className="course-selection-page">
       <div className="container">
@@ -164,9 +163,9 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
           showBackButton={true}
           backTo="/"
           selectedCoursesCount={selectedCourses.length}
-        />*/
-
-//{/* ✅ Success Message */}
+        />
+*/
+// {/* ✅ Success Message */}
 /* {showSuccess && (
           <div className="success-message">
             <div className="success-content">
@@ -179,8 +178,8 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
           </div>
         )}
 */
-// {/* ✅ Duplicate Alert Message */}
-/*{duplicateAlert && (
+//  {/* ✅ Duplicate Alert Message */}
+/*  {duplicateAlert && (
           <div className="duplicate-alert-message">
             <div className="duplicate-alert-content">
               <AlertCircle size={24} className="alert-icon" />
@@ -195,8 +194,8 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
           </div>
         )}
 */
-//{/* ✅ Registered Courses */}
-/*{registeredCourses.length > 0 && (
+// {/* ✅ Registered Courses */}
+/*  {registeredCourses.length > 0 && (
           <div className="registered-courses-section">
             <h2 className="registered-title">My Registered Courses</h2>
             <div className="registered-courses-list">
@@ -220,8 +219,8 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
           </div>
         )}
 */
-//  {/* ✅ Search Box */}
-/* <div className="search-container">
+// {/* ✅ Search Box */}
+/*  <div className="search-container">
           <div className="search-box">
             <Search size={20} className="search-icon" />
             <input
@@ -235,7 +234,7 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
         </div>
 */
 // {/* ✅ Courses Grid */}
-/*<div className="courses-container">
+/* <div className="courses-container">
           <h2 className="courses-title">Select Your Courses</h2>
           <div className="courses-grid">
             {filteredCourses.map((course) => (
@@ -250,7 +249,7 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
           </div>
         </div>
 */
-// {/* ✅ Selected Courses Panel */}
+//{/* ✅ Selected Courses Panel */}
 /* <SelectedCoursesPanel
           selectedCourses={selectedCourses}
           studentInfo={studentInfo}
@@ -268,6 +267,7 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
 
 export default CourseSelectionPage;
 */
+
 // src/pages/CourseSelectionPage.jsx
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -292,8 +292,19 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
 
   /* ========= Fetch student info & courses ========= */
   useEffect(() => {
-    // ✅ FIXED: Removed localStorage, now uses only propStudentInfo
-    const storedStudentInfo = propStudentInfo || null;
+    // ✅ FIXED: Check prop first, then sessionStorage on refresh
+    let storedStudentInfo = propStudentInfo;
+
+    // If prop is null (page refresh), try to get from sessionStorage
+    if (!storedStudentInfo) {
+      const sessionData = sessionStorage.getItem("studentInfo");
+      if (sessionData) {
+        storedStudentInfo = JSON.parse(sessionData);
+      }
+    } else {
+      // If prop exists, save it to sessionStorage for future refreshes
+      sessionStorage.setItem("studentInfo", JSON.stringify(propStudentInfo));
+    }
 
     if (!storedStudentInfo || !storedStudentInfo.major) {
       alert("⚠️ Please complete student information first.");
