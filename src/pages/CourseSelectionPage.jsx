@@ -35,7 +35,7 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
     }
 
     if (!storedStudentInfo || !storedStudentInfo.major) {
-      alert("⚠️ Please complete student information first.");
+      alert(" Please complete student information first.");
       navigate("/");
       return;
     }
@@ -50,7 +50,7 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
         setFilteredCourses(data);
       })
       .catch((error) => {
-        console.error("❌ Error fetching courses:", error);
+        console.error(" Error fetching courses:", error);
       });
 
     // Fetch already registered courses
@@ -60,14 +60,14 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
   /* ========= Fetch registered courses ========= */
   const fetchRegisteredCourses = async (email) => {
     try {
-      // ✅ 1. Check if stored locally
+      //  1. Check if stored locally
       const localData = localStorage.getItem(`registered_${email}`);
       if (localData) {
         setRegisteredCourses(JSON.parse(localData));
         return;
       }
 
-      // ✅ 2. Otherwise, fetch from backend
+      //  2. Otherwise, fetch from backend
       const student = await apiService.getStudentByEmail(email);
       if (student && student.selectedCourses) {
         setRegisteredCourses(student.selectedCourses);
@@ -77,7 +77,7 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
         );
       }
     } catch (err) {
-      console.error("❌ Error fetching registered courses:", err);
+      console.error(" Error fetching registered courses:", err);
     }
   };
 
@@ -102,7 +102,7 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
   const handleCourseSelect = (course) => {
     if (isCourseAlreadyRegistered(course.id)) {
       setDuplicateAlert(
-        `⚠️ You have already registered for ${course.id} - ${course.name}`
+        ` You have already registered for ${course.id} - ${course.name}`
       );
       setTimeout(() => setDuplicateAlert(""), 4000);
       return;
@@ -134,7 +134,7 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
   /* ========= Complete Registration ========= */
   const handleCompleteRegistration = async (payload) => {
     if (!payload.name || !payload.courses || payload.courses.length === 0) {
-      alert("⚠️ Please select at least one course.");
+      alert(" Please select at least one course.");
       return;
     }
 
@@ -145,7 +145,7 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
     if (duplicates.length > 0) {
       const duplicateNames = duplicates.map((c) => c.id).join(", ");
       alert(
-        `⚠️ You have already registered for: ${duplicateNames}\n\nPlease remove these courses before proceeding.`
+        ` You have already registered for: ${duplicateNames}\n\nPlease remove these courses before proceeding.`
       );
       return;
     }
@@ -159,14 +159,14 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
         selectedCourses: payload.courses,
       });
 
-      console.log("✅ Registration successful:", response);
+      console.log(" Registration successful:", response);
 
       const updatedCourses = [...registeredCourses, ...payload.courses];
       setRegisteredCourses(updatedCourses);
       setSelectedCourses([]);
       setShowSuccess(true);
 
-      // ✅ Save permanently in localStorage
+      //  Save permanently in localStorage
       localStorage.setItem(
         `registered_${studentInfo.email}`,
         JSON.stringify(updatedCourses)
@@ -174,7 +174,7 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
 
       setTimeout(() => setShowSuccess(false), 5000);
     } catch (error) {
-      console.error("❌ Registration error:", error);
+      console.error(" Registration error:", error);
       alert("Registration failed. Please try again.");
     } finally {
       setIsRegistering(false);
@@ -196,7 +196,7 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
         {showSuccess && (
           <div className="success-message">
             <div className="success-content">
-              <span className="success-icon">✅</span>
+              <span className="success-icon"></span>
               <div>
                 <h3>Registration Successful!</h3>
                 <p>
@@ -216,9 +216,7 @@ const CourseSelectionPage = ({ studentInfo: propStudentInfo }) => {
               <button
                 onClick={() => setDuplicateAlert("")}
                 className="alert-close-btn"
-              >
-                ×
-              </button>
+              ></button>
             </div>
           </div>
         )}

@@ -56,7 +56,7 @@ const StudentInfoPage = ({ setStudentInfo }) => {
           "Psychology",
         ]);
 
-        // ✅ REMOVED: setError() - Don't show error message to user
+        //  REMOVED: setError() - Don't show error message to user
       } finally {
         setMajorsLoading(false);
       }
@@ -65,7 +65,7 @@ const StudentInfoPage = ({ setStudentInfo }) => {
     initializeComponent();
   }, []);
 
-  // ✅ NEW: Input validation functions
+  //  NEW: Input validation functions
   const validateInput = (field, value) => {
     switch (field) {
       case "studentId":
@@ -88,7 +88,7 @@ const StudentInfoPage = ({ setStudentInfo }) => {
 
   // Handle input changes with validation
   const handleInputChange = (field, value) => {
-    // ✅ Validate input before setting state
+    //  Validate input before setting state
     const validatedValue = validateInput(field, value);
 
     setFormData((prev) => ({ ...prev, [field]: validatedValue }));
@@ -107,7 +107,7 @@ const StudentInfoPage = ({ setStudentInfo }) => {
       return false;
     }
 
-    // ✅ Check if Student ID is numeric
+    //  Check if Student ID is numeric
     if (!/^\d+$/.test(studentId)) {
       setError("Student ID must contain only numbers");
       return false;
@@ -118,7 +118,7 @@ const StudentInfoPage = ({ setStudentInfo }) => {
       return false;
     }
 
-    // ✅ Check if first name contains only letters
+    //  Check if first name contains only letters
     if (!/^[a-zA-Z\s]+$/.test(firstName)) {
       setError("First name must contain only letters");
       return false;
@@ -129,7 +129,7 @@ const StudentInfoPage = ({ setStudentInfo }) => {
       return false;
     }
 
-    // ✅ Check if last name contains only letters
+    //  Check if last name contains only letters
     if (!/^[a-zA-Z\s]+$/.test(lastName)) {
       setError("Last name must contain only letters");
       return false;
@@ -246,7 +246,7 @@ const StudentInfoPage = ({ setStudentInfo }) => {
       />
 
       <div className="page-content">
-        {/* ✅ REMOVED: Backend Status Indicator - No more red messages */}
+        {/*  REMOVED: Backend Status Indicator - No more red messages */}
 
         <div className="form-container">
           <div className="student-info-header">
@@ -274,9 +274,7 @@ const StudentInfoPage = ({ setStudentInfo }) => {
                 onClick={() => setError("")}
                 className="alert-close"
                 aria-label="Close error message"
-              >
-                ×
-              </button>
+              ></button>
             </div>
           )}
 
@@ -291,7 +289,7 @@ const StudentInfoPage = ({ setStudentInfo }) => {
                 value={formData.studentId}
                 onChange={(e) => handleInputChange("studentId", e.target.value)}
                 placeholder="Enter your student ID (numbers only)"
-                maxLength={11} // ✅ Add this line
+                maxLength={11}
                 disabled={loading}
                 className={error && !formData.studentId.trim() ? "error" : ""}
               />

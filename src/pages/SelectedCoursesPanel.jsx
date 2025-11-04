@@ -22,7 +22,7 @@ const SelectedCoursesPanel = ({
 
     if (selectedCourses.length === 0) {
       alert(
-        "⚠️ Please select at least one course before completing registration."
+        " Please select at least one course before completing registration."
       );
       return;
     }
@@ -103,8 +103,7 @@ const SelectedCoursesPanel = ({
                 className="btn btn-primary complete-btn"
                 disabled={isRegistering || selectedCourses.length === 0}
               >
-                <CreditCard size={20} />
-                {isRegistering ? "Processing..." : "Proceed to Checkout"}
+                {isRegistering ? "Processing..." : "Register"}
               </button>
               <button
                 onClick={onClearAll}
